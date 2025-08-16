@@ -5,3 +5,6 @@ Control-plane repo to utilize ArgoCD App of apps to bootstrap the control-plane 
 
 * `apps/` - 
 * `manifests` - 
+
+## Deployment
+
