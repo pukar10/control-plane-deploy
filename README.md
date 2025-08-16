@@ -1,5 +1,5 @@
 # control-plane-deploy
-Control-plane repo to utilize ArgoCD App of apps to bootstrap the control-plane cluster for my homelab.
+Control-plane repo utilizing ArgoCD App of apps to bootstrap the control-plane cluster for my homelab.
 
 ## Project
 
