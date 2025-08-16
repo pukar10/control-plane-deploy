@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  namespace: argocd
+  name: control-plane
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/pukar10/control-plane-deploy.git
+    targetRevision: main
+    path: apps
+  destination:
+    namespace: argocd
+    name: in-cluster
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
