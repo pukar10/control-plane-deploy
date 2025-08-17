@@ -9,6 +9,8 @@ spec:
     repoURL: https://github.com/pukar10/control-plane-deploy.git
     targetRevision: main
     path: apps
+    directory:
+      recurse: true
   destination:
     namespace: argocd
     name: in-cluster
