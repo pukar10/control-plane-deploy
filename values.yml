@@ -1,0 +1,17 @@
+repo:
+  url: https://github.com/pukar10/control-plane-deploy.git
+  revision: main
+
+metallb:
+  enabled: true
+  namespace: metallb
+  version: 0.15.2
+  poolName: homelab-pool
+  addresses:
+    - 192.168.1.230-192.168.1.250  # <— set a free LAN slice
+
+ingressNginx:
+  enabled: true
+  namespace: ingress-nginx
+  version: 4.11.3
+  serviceType: LoadBalancer

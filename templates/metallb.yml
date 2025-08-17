@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb
+  namespace: argocd
+  annotations: { argocd.argoproj.io/sync-wave: "-2" }
+spec:
+  project: default
+  destination: { name: in-cluster, namespace: {{ .Values.metallb.namespace }} }
+  sources:
+  - repoURL: https://metallb.github.io/metallb
+    chart: metallb
+    targetRevision: {{ .Values.metallb.version | quote }}
+  - repoURL: {{ .Values.repo.url | quote }}
+    targetRevision: {{ .Values.repo.revision | quote }}
+    path: manifests/metallb
+  syncPolicy: { syncOptions: [CreateNamespace=true] }
