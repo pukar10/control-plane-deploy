@@ -1,4 +1,0 @@
-apiVersion: v2
-name: control-plane
-version: 1.0.0
-description: Homelab Control Plane
