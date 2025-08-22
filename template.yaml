@@ -18,6 +18,11 @@ spec:
     path: helm
     helm:
       releaseName: metallb
+      valuesObject:
+    
+        addresses:
+        - 192.168.1.230-192.168.1.250
+        syncWave: 0
   syncPolicy:
     automated:
       prune: false

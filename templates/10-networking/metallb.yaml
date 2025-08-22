@@ -16,7 +16,7 @@ spec:
     path: helm
     helm:
       releaseName: metallb
-      {{- with .Values.metallb.values }}
+      {{- with .Values.metallb }}
       valuesObject:
     {{ toYaml . | nindent 8 }}
       {{- end }}
