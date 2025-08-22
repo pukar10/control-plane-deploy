@@ -4,7 +4,7 @@ metadata:
   name: metallb
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "{{ default 10 .Values.metallb.syncWave }}"
+    argocd.argoproj.io/sync-wave: "{{ .Values.metallb.syncWave }}"
 spec:
   project: default
   destination:
