@@ -13,8 +13,8 @@ spec:
     repoURL: https://github.com/pukar10/control-plane-launch.git
     targetRevision: main
     path: .
-    directory:
-      recurse: true
+    helm:
+      - values.yaml
   syncPolicy:
     automated:
       prune: true
