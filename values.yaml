@@ -1,5 +1,7 @@
 metallb:
   syncWave: 0
+  addresses:
+    - 192.168.1.230-192.168.1.250
 
 argocd:
   syncWave: 0
