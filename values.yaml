@@ -1,2 +1,5 @@
+metallb:
+  syncWave: 0
+
 argocd:
   syncWave: 0
