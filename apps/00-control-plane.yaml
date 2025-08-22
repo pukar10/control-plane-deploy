@@ -1,3 +1,4 @@
+# apps/parent.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -5,13 +6,15 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://github.com/pukar10/control-plane-deploy.git
-    targetRevision: main
-    path: clusters/dev
   destination:
-    name: in-cluster
+    server: https://kubernetes.default.svc
     namespace: argocd
+  source:
+    repoURL: https://github.com/your-user/control-plane.git  # <— change
+    targetRevision: main                                    # <— change
+    path: apps
+    directory:
+      recurse: true
   syncPolicy:
     automated:
       prune: true
