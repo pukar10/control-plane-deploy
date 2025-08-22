@@ -13,8 +13,8 @@ spec:
     namespace: ingress-nginx
   source:
     repoURL: https://github.com/pukar10/ingress-nginx-launch.git
-    chart: ingress-nginx
     targetRevision: main
+    path: helm
     helm:
       releaseName: ingress-nginx
       valuesObject:
