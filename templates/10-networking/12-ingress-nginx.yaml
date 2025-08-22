@@ -5,7 +5,7 @@ metadata:
   name: ingress-nginx
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "{{ .Values.ingress-nginx.syncWave }}"
+    argocd.argoproj.io/sync-wave: "{{ .Values.ingressNginx.syncWave }}"
 spec:
   project: default
   destination:
@@ -18,7 +18,7 @@ spec:
     helm:
       releaseName: ingress-nginx
       valuesObject:
-        metallb: {{- toYaml .Values.metallb.values | nindent 10 }}
+        metallb: {{- toYaml .Values.ingressNginx.values | nindent 10 }}
   syncPolicy:
     automated:
       prune: false

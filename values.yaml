@@ -7,7 +7,7 @@ metallb:
     addresses:
       - 192.168.1.230-192.168.1.250
 
-ingress-nginx:
+ingressNginx:
   syncWave: -1
   values:
     controller:
@@ -25,5 +25,5 @@ ingress-nginx:
         externalTrafficPolicy: Local
         loadBalancerIP: 192.168.1.230
 
-argocd-ingress:
+argocdIngress:
   syncWave: 0
