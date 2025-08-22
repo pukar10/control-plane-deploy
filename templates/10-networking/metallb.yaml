@@ -17,8 +17,7 @@ spec:
     helm:
       releaseName: metallb
       valuesObject: 
-        metallb:
-          {{- toYaml .Values.metallb.values | nindent 10 }}
+        {{- toYaml .Values.metallb.values | nindent 8 }}
   syncPolicy:
     automated:
       prune: false
