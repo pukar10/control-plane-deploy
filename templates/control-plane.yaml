@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/pukar10/control-plane-launch.git
     targetRevision: main
-    path: apps
+    path: .
     directory:
       recurse: true
   syncPolicy:
