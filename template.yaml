@@ -18,9 +18,10 @@ spec:
     path: helm
     helm:
       releaseName: metallb
-      valuesObject:
-        addresses:
-        - 192.168.1.230-192.168.1.250
+      valuesObject: 
+        metallb:
+          addresses:
+          - 192.168.1.230-192.168.1.250
   syncPolicy:
     automated:
       prune: false
