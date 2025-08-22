@@ -1,0 +1,27 @@
+# apps/ingress-nginx-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress-nginx
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "{{ .Values.ingress-nginx.syncWave }}"
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: ingress-nginx
+  source:
+    repoURL: https://github.com/pukar10/ingress-nginx-launch.git
+    chart: ingress-nginx
+    targetRevision: main
+    helm:
+      releaseName: ingress-nginx
+      valuesObject:
+        metallb: {{- toYaml .Values.metallb.values | nindent 10 }}
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true

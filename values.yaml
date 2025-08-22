@@ -1,8 +1,29 @@
+argocd:
+    syncWave: -3
+
 metallb:
-  syncWave: 0
+  syncWave: -2
   values:
     addresses:
       - 192.168.1.230-192.168.1.250
 
-argocd:
-    syncWave: 0
+ingress-nginx:
+  syncWave: -1
+  values:
+    controller:
+      replicaCount: 2
+      ingressClass: nginx
+      ingressClassResource:
+        enabled: true
+        name: nginx
+        default: true
+      watchIngressWithoutClass: true
+      publishService:
+        enabled: true
+      service:
+        type: LoadBalancer
+        externalTrafficPolicy: Local
+        loadBalancerIP: 192.168.1.230
+
+argocd-ingress:
+  syncWave: 0
