@@ -10,8 +10,8 @@ spec:
     server: https://kubernetes.default.svc
     namespace: argocd
   source:
-    repoURL: https://github.com/your-user/control-plane.git  # <— change
-    targetRevision: main                                    # <— change
+    repoURL: https://github.com/pukar10/control-plane-launch.git
+    targetRevision: main
     path: apps
     directory:
       recurse: true
