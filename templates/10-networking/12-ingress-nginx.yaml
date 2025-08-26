@@ -6,7 +6,7 @@ metadata:
   namespace: argocd
   annotations:
   # argocd.argoproj.io/sync-wave: {{ index .Values "ingress-nginx" "syncWave" | quote }}
-    argocd.argoproj.io/sync-wave: {{ toYaml .Values.ingressnginx.syncWave | quote }}
+    argocd.argoproj.io/sync-wave: {{ .Values.ingressnginx.syncWave | quote }}
 spec:
   project: default
   destination:
