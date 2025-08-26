@@ -1,14 +1,14 @@
 argocd:
-    syncWave: -3
+    syncWave: -6
 
 metallb:
-  syncWave: -2
+  syncWave: -5
   values:
     addresses:
       - 192.168.1.230-192.168.1.250
 
 ingressnginx:
-  syncWave: -1
+  syncWave: -4
   values:
     controller:
       service:
