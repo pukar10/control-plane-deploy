@@ -6,7 +6,7 @@ metadata:
   namespace: argocd
   annotations:
   # argocd.argoproj.io/sync-wave: {{ index .Values "ingress-nginx" "syncWave" | quote }}
-    argocd.argoproj.io/sync-wave: "{{ .Values.ingressnginx.syncWave }}"
+    argocd.argoproj.io/sync-wave: {{ .Values.ingressnginx.syncWave | quote }}
 spec:
   project: default
   destination:
@@ -18,9 +18,8 @@ spec:
     path: helm
     helm:
       releaseName: ingress-nginx
-      valuesObject:
+      valuesObject: {{ toYaml .Values.ingressnginx.values | nindent 8 }}
         # ingress-nginx: {{- toYaml (index .Values "ingress-nginx" "values") | nindent 10 }}
-        ingress-nginx: {{ toYaml .Values.ingressnginx.values | nindent 10 }}
   syncPolicy:
     automated:
       prune: false
