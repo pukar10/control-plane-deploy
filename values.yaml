@@ -10,16 +10,6 @@ metallb:
 ingressnginx:
   syncWave: -1
   values:
-    controller:
-      replicaCount: 2
-      ingressClass: nginx
-      ingressClassResource:
-        enabled: true
-        name: nginx
-        default: true
-      watchIngressWithoutClass: true
-      publishService:
-        enabled: true
       service:
         type: LoadBalancer
         externalTrafficPolicy: Local
