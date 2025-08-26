@@ -3,13 +3,15 @@ kind: Application
 metadata:
   name: cert-manager
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: {{ .Values.certmanager.syncWave | quote }}
 spec:
   project: default
   destination:
     name: in-cluster
     namespace: cert-manager
   source:
-    repoURL: https://github.com/youruser/cert-manager-launch.git
+    repoURL: https://github.com/pukar10/cert-manager-launch.git
     targetRevision: main
     path: helm
     helm:
