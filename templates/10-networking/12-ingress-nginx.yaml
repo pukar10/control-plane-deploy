@@ -15,7 +15,7 @@ spec:
     targetRevision: main
     path: helm
     helm:
-      releaseName: ingress-nginx
+      releaseName: ingressnginx
       valuesObject: {{ toYaml .Values.ingressnginx.values | nindent 8 }}
   syncPolicy:
     automated:
