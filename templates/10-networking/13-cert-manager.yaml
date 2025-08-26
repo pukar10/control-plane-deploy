@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: cert-manager
+  source:
+    repoURL: https://github.com/youruser/cert-manager-launch.git
+    targetRevision: main
+    path: helm
+    helm:
+      releaseName: certmanager
+      valuesObject: {{ toYaml .Values.certmanager.values | nindent 8 }}
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true

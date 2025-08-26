@@ -20,3 +20,11 @@ ingressnginx:
       hosts: argocd.lab
       ingressClassName: nginx
       syncWave: "0"
+
+certmanager:
+  syncWave: -3
+  values:
+    certificate:
+      argocd:
+        enabled: true
+        host: argocd.lab
