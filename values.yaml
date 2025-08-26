@@ -25,6 +25,4 @@ certmanager:
   syncWave: -3
   values:
     certificate:
-      argocd:
-        enabled: true
         host: argocd.lab
