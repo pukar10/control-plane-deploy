@@ -4,7 +4,7 @@ metadata:
   name: argocd
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "{{ .Values.argocd.syncWave }}"
+    argocd.argoproj.io/sync-wave: {{ .Values.argocd.syncWave | quote }}
 spec:
   project: default
   destination:
@@ -16,8 +16,7 @@ spec:
     path: helm
     helm:
       releaseName: argocd
-      valueFiles:
-        - values.yaml
+      valuesObject: {{ toYaml .Values.argocd.values | nindent 8 }}
   syncPolicy:
     automated:
       prune: false

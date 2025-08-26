@@ -1,6 +1,3 @@
-argocd:
-    syncWave: -6
-
 metallb:
   syncWave: -5
   values:
@@ -26,3 +23,16 @@ certmanager:
   values:
     certificate:
         host: argocd.lab
+
+argocd:
+  syncWave: -4
+  values:
+    server:
+      ingress:
+        hosts: [ "argocd.lab" ]
+        tls:
+          - hosts: [ "argocd.lab" ]
+            secretName: argocd-tls
+    configs:
+      cm:
+        url: "https://argocd.lab"
