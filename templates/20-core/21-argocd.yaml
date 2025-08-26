@@ -12,7 +12,7 @@ spec:
     namespace: argocd
   source:
     repoURL: https://github.com/pukar10/argocd-launch.git
-    targetRevision: port-forward-no-tls
+    targetRevision: main
     path: helm
     helm:
       releaseName: argocd
