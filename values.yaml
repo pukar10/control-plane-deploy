@@ -28,4 +28,4 @@ ingressnginx:
         enabled: true
         hosts: argocd.lab
         ingressClassName: nginx
-        syncWave: 0 
+        syncWave: "0"
