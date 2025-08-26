@@ -1,0 +1,28 @@
+# apps/ingress-nginx-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress-nginx
+  namespace: argocd
+  annotations:
+  # argocd.argoproj.io/sync-wave: {{ index .Values "ingress-nginx" "syncWave" | quote }}
+    argocd.argoproj.io/sync-wave: {{ .Values.ingressnginx.syncWave | quote }}
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: ingress-nginx
+  source:
+    repoURL: https://github.com/pukar10/ingress-nginx-launch.git
+    targetRevision: main
+    path: helm
+    helm:
+      releaseName: ingress-nginx
+      valuesObject: {{ toYaml .Values.ingressnginx.values | nindent 8 }}
+        # ingress-nginx: {{- toYaml (index .Values "ingress-nginx" "values") | nindent 10 }}
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
