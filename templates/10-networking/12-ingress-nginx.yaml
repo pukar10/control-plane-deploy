@@ -18,7 +18,7 @@ spec:
     helm:
       releaseName: ingress-nginx
       valuesObject:
-        metallb: {{- toYaml (index .Values "ingress-nginx" "values") | nindent 10 }}
+        ingress-nginx: {{- toYaml (index .Values "ingress-nginx" "values") | nindent 10 }}
   syncPolicy:
     automated:
       prune: false
