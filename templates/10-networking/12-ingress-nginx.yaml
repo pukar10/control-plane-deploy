@@ -1,11 +1,11 @@
 # apps/ingress-nginx-app.yaml
-# argocd.argoproj.io/sync-wave: {{ index .Values "ingress-nginx" "syncWave" | quote }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: ingress-nginx
   namespace: argocd
   annotations:
+  # argocd.argoproj.io/sync-wave: {{ index .Values "ingress-nginx" "syncWave" | quote }}
     argocd.argoproj.io/sync-wave: "{{ .Values.ingressnginx.syncWave }}"
 spec:
   project: default
